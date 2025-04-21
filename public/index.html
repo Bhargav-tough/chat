@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chit Chat</title>
+  <!-- Include Font Awesome CDN for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <img src="logo.png" alt="Chit Chat Logo" class="logo">
+    <h1>Varta</h1>
+    <p>Baak Bak!!!!!</p>
+  </header>
+
+  <!-- Chat Container Section -->
+  <div class="chat-container">
+    <!-- Chat Area -->
+    <main class="chat-area">
+      <div class="messages">
+        <!-- Messages will appear here -->
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input">
+        <textarea placeholder="Type your message..."></textarea>
+        <!-- Send Button with Icon -->
+        <button>
+          <i class="fas fa-paper-plane"></i> <!-- Send Icon -->
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Chit Chat Inc. All rights reserved Bhargav.</p>
+  </footer>
+
+  <!-- Socket.io Client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
