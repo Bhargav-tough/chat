@@ -3,45 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chit Chat</title>
-  <!-- Include Font Awesome CDN for icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <title>Varta - Live Chat</title>
+  <!-- Meta tags for SEO -->
+  <meta name="description" content="Varta - A real-time chat application for instant communication">
+  <meta name="keywords" content="chat, messaging, Varta, real-time">
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <img src="logo.png" alt="Chit Chat Logo" class="logo">
-    <h1>Varta</h1>
-    <p>Baak Bak!!!!!</p>
-  </header>
-
-  <!-- Chat Container Section -->
-  <div class="chat-container">
-    <!-- Chat Area -->
-    <main class="chat-area">
-      <div class="messages">
-        <!-- Messages will appear here -->
+  <div class="app-container">
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="branding">
+        <div class="logo">
+          <img src="logovaar.jpg" alt="Varta Logo">
+        </div>
+        <div class="brand-text">
+          <h1>Vaarta</h1>
+          <p class="tagline">Baak Bak!!!!!</p>
+        </div>
       </div>
-
-      <!-- Chat Input -->
-      <div class="chat-input">
-        <textarea placeholder="Type your message..."></textarea>
-        <!-- Send Button with Icon -->
-        <button>
-          <i class="fas fa-paper-plane"></i> <!-- Send Icon -->
-        </button>
-      </div>
-    </main>
+    </header>
+    
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <!-- Chat Main Area -->
+       
+      <main class="chat-area">
+        
+        <div class="chat-header">
+          <div class="chat-contact-info">
+            
+            <div class="current-chat-details">
+              <h2>Live Chat Room <span class="room-code-indicator" id="current-room">Public</span></h2>
+              <p class="status" id="connection-status">Loading...</p>
+            </div>
+          </div>
+          <div class="chat-actions">
+            <button title="Refresh" id="refresh-btn"><i class="fas fa-sync-alt"></i></button>
+            <button title="More Options" id="options-btn"><i class="fas fa-ellipsis-v"></i>
+              <div class="options-menu" id="options-menu" style="display: none;">
+                <ul>
+                  <li id="create-room-option">Create Private Room</li>
+                  <li id="join-room-option">Join Private Room</li>
+                  <li id="public-room-option">Return to Public Chat</li>
+                </ul>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Messages Container -->
+        <div class="messages-container" id="messages-container">
+          <!-- Messages will appear here -->
+          <div class="message system">
+            <div class="message-content">Welcome to Varta Chat! Please wait...</div>
+          </div>
+        </div>
+        
+        <!-- Chat Input Area -->
+        <div class="chat-input-area">
+          <div class="input-actions">
+            <button title="Emoji"><i class="far fa-smile"></i></button>
+          </div>
+          <textarea placeholder="Type your message..." class="message-input" id="message-input"></textarea>
+          <div class="send-actions">
+            <button title="Send Message" class="send-button" id="send-button">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>&copy; 2025 Vaarta Inc. All rights reserved by Bhargav.</p>
+      <nav class="footer-nav">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+      </nav>
+    </footer>
   </div>
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 Chit Chat Inc. All rights reserved Bhargav.</p>
-  </footer>
+  <!-- Create Room Modal -->
+  <div class="modal" id="create-room-modal">
+    <div class="modal-content">
+      <h2>Create Private Room</h2>
+      <p>Share this code with people you want to chat with privately:</p>
+      <div class="code-display" id="room-code"></div>
+      <div class="modal-buttons">
+        <button class="copy-btn" id="copy-code-btn">Copy Code</button>
+        <button class="close-btn" id="create-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Socket.io Client -->
-  <script src="/socket.io/socket.io.js"></script>
+  <!-- Join Room Modal -->
+  <div class="modal" id="join-room-modal">
+    <div class="modal-content">
+      <h2>Join Private Room</h2>
+      <p>Enter the room code to join a private chat:</p>
+      <input type="text" class="join-room-input" id="join-code-input" placeholder="Enter code" maxlength="8">
+      <div class="modal-buttons">
+        <button class="copy-btn" id="join-room-btn">Join Room</button>
+        <button class="close-btn" id="join-close-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
